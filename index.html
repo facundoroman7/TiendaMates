@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TiendaMates</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -21,7 +24,7 @@
             </ul>
 
         </nav>
-        
+
     </header>
 
     <main>
@@ -30,22 +33,35 @@
             <p>Vendemos mates personalizados y unicos</p>
         </div>
 
-        <section class="container-fluid">
+        <!--Filtro de busqueda-->
+
+        <div class="buscador-container">
+            <input type="text" id="buscadorInput" placeholder="Buscar productos, mates, termos y más..">
+            <ul id="resultadosList" class="resultados-list">
+                
+            </ul>
+
+            <p id="noResultados" class="no-resultados"> No se encontraron resultados.</p>
+        </div>
+
+        <!--section de las tarjetas (proximamente modificado en javascript)-->
+        <section id="contenedorDeTarjetas" class="container-fluid">
             <div class="row">
                 <div class="col-12 col-lg-4">
-                    <div class="wrapper">
-                        <img src="	https://http2.mlstatic.com/D_NQ_NP_639736-MLA53550125546_012023-W.webp" alt="">
+                    <div class="wrapper" >
+                        <img id="imgUrl" src="imagenes/img-1.webp" alt="">
                     </div>
-                    <div class="datos">
-                        <h3>Mate Camionero</h3>
-                        <p>Mate Camionero De Vidrio Cuero Vacuno Virola De Aluminio</p>
-                        <p class="fw-bold fs-4">1000$</p>
-                        <button class="btn btn-danger">Comprar  <i class="bi bi-cart-fill"></i></button>
-                    </div>
-                </div>
+                    <div id="datosDeTarjetas" class="datos">
+                        <h3 id="tituloProducto">Mate Camionero</h3>
+                        <p id="descripcion">Mate Camionero De Vidrio Cuero Vacuno Virola De Aluminio</p>
+                        <p id="precio" class="fw-bold fs-4">1000$</p>
+                        <button id="mate" class="btn btn-danger">Comprar <i
+                                class="bi bi-cart-fill"></i></button>
+                    </div> 
+                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="wrapper">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_605033-MLA52051391605_102022-W.webp" alt="">
+                        <img src="imagenes/img-2.jpg" alt="">
                     </div>
                     <div class="datos">
                         <h3>Mate calabaza</h3>
@@ -56,7 +72,7 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="wrapper">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_639302-MLA54946544248_042023-W.webp" alt="">
+                        <img src="imagenes/termo-1.jpg" alt="">
                     </div>
                     <div class="datos">
                         <h3>Termo stanley</h3>
@@ -67,7 +83,7 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="wrapper">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_764394-MLA53549893579_012023-W.webp" alt="">
+                        <img src="imagenes/termo-2.jpg" alt="">
                     </div>
                     <div class="datos">
                         <h3>Termo contigo</h3>
@@ -78,7 +94,7 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="wrapper">
-                        <img src="	https://http2.mlstatic.com/D_NQ_NP_639736-MLA53550125546_012023-W.webp" alt="">
+                        <img src="imagenes/img-1.webp" alt="">
                     </div>
                     <div class="datos">
                         <h3>Mate personalizado</h3>
@@ -89,7 +105,7 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="wrapper">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_951008-MLA51936408924_102022-W.webp" alt="">
+                        <img src="imagenes/mate-argentino.jpg" alt="">
                     </div>
                     <div class="datos">
                         <h3>Mate Argentino</h3>
@@ -97,23 +113,30 @@
                         <p class="fw-bold fs-4">6000$</p>
                         <button class="btn btn-danger">Comprar  <i class="bi bi-cart-fill"></i></button>
                     </div>
-                </div>
-
-                <footer>
-                    <ul>
-                        <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-                        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                        <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                        <li><a href="#"><i class="bi bi-map"></i></a></li>
-                    </ul>
-                </footer>
-                
+                </div>     
             </div>
-        </section>
-        
+        </section> 
     </main>
+    
+    <!--footer-->
+     <footer>
+        <ul>
+            <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+            <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+            <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+            <li><a href="#"><i class="bi bi-map"></i></a></li>
+        </ul>
+    </footer> 
+
+
+
+
+
     <script src="index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </body>
+
 </html>

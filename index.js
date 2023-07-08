@@ -20,17 +20,51 @@ do{
 while( edad < 18)
 
 
-// -----function constructor------
 
-// function Producto(marca, color, precio){
-//     this.marca = marca;
-//     this.color = color;
-//     this.precio= precio;
-// }
+// flitro de busqueda 
 
-// const mateCamionero = new Producto ("Mate camionero" , "marron", 1000)
-// const mateCalabaza = new Producto ("Mate calabaza" , "Marron oscuro", 3000)
 
-// console.log(mateCamionero)
-// console.log(mateCalabaza)
+const productsMates = [
+    {nombre: "mate camionero"},
+    {nombre: "mate calabaza"},
+    {nombre: "Termo stanley"},
+    {nombre: "mate Argentino"}, 
+    {nombre: "mate personalizado"}, 
+    {nombre: "termo contigo"},
+
+];
+
+const buscadorInput = document.querySelector("#buscadorInput");
+
+const resultadosList = document.querySelector("#resultadosList");
+
+const noResultados = document.querySelector("#noResultados");
+
+
+const handleSearch = () => {
+    const buscadorTerm = buscadorInput.value.toLowerCase();
+    const filteredMates = productsMates.filter((mates) => mates.nombre.toLowerCase().includes(buscadorTerm));
+
+    resultadosList.innerHTML = "";
+
+    if (filteredMates.length === 0) {
+        noResultados.style.display = "block" 
+    }else{
+        filteredMates.forEach((mates) => {
+            const li = document.createElement("li");
+            li.textContent = mates.nombre;
+            resultadosList.appendChild(li);
+        });
+        noResultados.style.display = "none";
+    }
+
+
+     if (buscadorInput.value === "") {
+        resultadosList.innerHTML = ""
+     };
+};
+
+buscadorInput.addEventListener("input", handleSearch);
+
+
 
