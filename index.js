@@ -75,7 +75,7 @@ const handleSearch = () => {
 
 buscadorInput.addEventListener("input", handleSearch);
 
-//tarjetas de productos hecho en javascript
+//tarjetas de productos y modal hecho en javascript
 
 // la lista de productos
 const productoTarjetas = [
@@ -167,7 +167,7 @@ const productoTarjetas = [
         titulo: "Canasta Uruguaya ",
         imagen: "./imagenes/matera-1.jpg",
         descripcion: "Matera Portatermo Cuero Premium Legítimo. ipsum dolor.",
-        precio: 16700
+        precio: 16700,
     },
     {
         id: "matera-2",
@@ -190,7 +190,7 @@ const productoTarjetas = [
 
 
 //carrito
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("productoCarrito")) || [];
 
 
 
@@ -221,6 +221,16 @@ function cargarProductos() {
         //agregar producto al carrito apretando el boton de compra de la tarjeta y puede aumentar el producto en el modal de compras  
         comprar.addEventListener("click", () => {
 
+            Toastify({
+                text: "Se agreado el producto al carrito",
+                className: "info",
+                position: "right",
+                style: {
+                  background: "#22ab37",
+                  color:"white"
+                }
+              }).showToast();
+
             const repeat = carrito.some((repeatProducto) => repeatProducto.id === tarjeta.id);
             
             if (repeat) {
@@ -241,6 +251,7 @@ function cargarProductos() {
             }
             console.log(carrito);
             sumaDeCarritoLogo();
+            saveStorage();
         })
 
 
@@ -252,6 +263,15 @@ function cargarProductos() {
 cargarProductos()
 
 
+//localStorage
+
+const saveStorage = () =>{
+    localStorage.setItem ("productoCarrito" , JSON.stringify (carrito));
+}
+
+
+
+
 
 //modal
 
@@ -259,6 +279,7 @@ const contenedorModal = () => {
     modalContainer.innerHTML = "";
     modalContainer.style.display = "flex";
 
+    //Header del modal
     let modalHeader = document.createElement("div");
     modalHeader.className = "modal-header";
     modalHeader.innerHTML = `
@@ -267,7 +288,7 @@ const contenedorModal = () => {
         
         `;
     modalContainer.append(modalHeader);
-
+    //Boton del header para salir del modal
     const modalBotton = document.createElement("h2");
     modalBotton.innerText = "X";
     modalBotton.className = "modal-header-button";
@@ -279,7 +300,7 @@ const contenedorModal = () => {
 
 
     modalContainer.append(modalBotton);
-
+    //Cuerpo del modal y tambien los productos que se agregen 
     carrito.forEach((tarjeta) => {
         let modalCuerpo = document.createElement("div");
         modalCuerpo.className = "modal-contenido";
@@ -287,11 +308,34 @@ const contenedorModal = () => {
             <img src="${tarjeta.imagen}">
             <h3> ${tarjeta.titulo}</h3>
             <p> ${tarjeta.precio}$</p>
+            <span class="resta"> <i class="bi bi-dash-circle"></i> </span>
             <p> Cantidad: ${tarjeta.cantidad}</p>
+            <span class="sumar"> <i class="bi bi-plus-circle"> </i> </span>
             <p> Total: ${tarjeta.cantidad * tarjeta.precio}</p> 
         `
         modalContainer.append(modalCuerpo);
 
+        // sumar y restar productos en el modal del carrito
+        let restar = modalCuerpo.querySelector(".resta");
+
+        restar.addEventListener("click" , () =>{
+            if(tarjeta.cantidad !== 1){
+                tarjeta.cantidad--;
+                contenedorModal();
+                saveStorage();
+            }
+        })
+
+        let sumar = modalCuerpo.querySelector(".sumar");
+
+        sumar.addEventListener("click", () =>{
+            tarjeta.cantidad++
+            contenedorModal();
+            saveStorage();
+        })
+
+
+        // boton para eliminar -> (tacho)
         let eliminar = document.createElement("span");
         eliminar.innerHTML = `<i class="bi bi-trash"></i>`
         eliminar.className = "Btn-eliminar";
@@ -315,7 +359,7 @@ const contenedorModal = () => {
 
 caritoDeCompra.addEventListener("click", contenedorModal);
 
-//eliminar productos
+//funcion eliminar productos
 const eliminarProducto = () =>{
     const encontrarId = carrito.find((element) => element.id);
 
@@ -325,14 +369,23 @@ const eliminarProducto = () =>{
 
     
     contenedorModal();
+    saveStorage();
     sumaDeCarritoLogo();
 }; 
 
+// Suma la cantidad de productos y te lo muestra en el carrito 
 
 const sumaDeCarritoLogo = () =>{
     cantidadProducto.style.display = "block";
-    cantidadProducto.innerText = carrito.length;
+
+    const carritoLength = carrito.length;
+    
+    localStorage.setItem("carritoLength", JSON.stringify (carritoLength));
+
+    cantidadProducto.innerText = JSON.parse(localStorage.getItem("carritoLength"));
 }
+
+sumaDeCarritoLogo();
 
 
 

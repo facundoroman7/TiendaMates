@@ -249,7 +249,7 @@
     .modal-contenido {
       display: flex;
       align-items: center;
-      width: 70%;
+      width: 80%;
       margin: 10px;
       padding: 10px;
       border-bottom: 1px solid #ccc;
@@ -280,6 +280,7 @@
       cursor: pointer;
     }
 
+    /*cantidad del producto agredado*/
     .cantidad-producto{
       background-color: red;
       color: white;
@@ -290,5 +291,19 @@
       right: 23px;
       position: absolute;
       display: none;
+    }
+
+
+    .resta{
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+
+    .sumar{
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
     }
     
