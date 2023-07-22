@@ -1,41 +1,27 @@
-// function nombre(){
-//     let nombre = prompt(("Escriba un nombre de usuario:"));
-//     if (nombre == nombre) {
-//         alert("Bienvenido " + nombre)
-//     };
-// }
+function nombre() {
+    let nombre = prompt(("Escriba un nombre de usuario:"));
+    if (nombre) {
+        alert("Bienvenido " + nombre)
+    };
+}
 
-// nombre()
+nombre()
 
-// let edad = parseInt(prompt("Pon tu edad:"))
-// do{
+let edad = parseInt(prompt("Pon tu edad:"))
+do {
 
-//     if (edad >= 18) {
-//         alert("Sos mayor de edad. Bienvenido!")
-//     }else{
-//         alert("Sos menor de edad")
-//         edad = parseInt(prompt("Lo siento, tienes que ser mayor de edad. Vuelva a intentarlo"))
-//     }
-// }
-// while( edad < 18)
+    if (edad >= 18) {
+        alert("Sos mayor de edad. Bienvenido a TiendaMates!")
+    } else {
+        alert("Sos menor de edad")
+        edad = parseInt(prompt("Lo siento, tienes que ser mayor de edad. Vuelva a intentarlo"))
+    }
+}
+while (edad < 18)
 
 
 
 // flitro de busqueda 
-
-
-const productsMates = [
-    { nombre: "Mate camionero" },
-    { nombre: "Mate calabaza" },
-    { nombre: "Termo stanley" },
-    { nombre: "Mate Argentino" },
-    { nombre: "Mate personalizado" },
-    { nombre: "Termo contigo" },
-    { nombre: "Canasta uruguaya"},
-    { nombre: "Mochila matera"},
-    { nombre: "Portatermo matero"},
-
-];
 
 const buscadorInput = document.querySelector("#buscadorInput");
 
@@ -48,6 +34,20 @@ const caritoDeCompra = document.querySelector("#carrito");
 const modalContainer = document.querySelector("#modalContainer");
 
 const cantidadProducto = document.querySelector("#cantidadProducto");
+
+
+const productsMates = [
+    { nombre: "Mate camionero" },
+    { nombre: "Mate calabaza" },
+    { nombre: "Termo stanley" },
+    { nombre: "Mate Argentino" },
+    { nombre: "Mate personalizado" },
+    { nombre: "Termo contigo" },
+    { nombre: "Canasta uruguaya" },
+    { nombre: "Mochila matera" },
+    { nombre: "Portatermo matero" },
+
+];
 
 
 const handleSearch = () => {
@@ -74,6 +74,7 @@ const handleSearch = () => {
 };
 
 buscadorInput.addEventListener("input", handleSearch);
+
 
 //tarjetas de productos y modal hecho en javascript
 
@@ -196,6 +197,8 @@ let carrito = JSON.parse(localStorage.getItem("productoCarrito")) || [];
 
 const contenedorTarjetas = document.querySelector("#contenedorDeTarjetas");
 
+// Funcion para aprecer las tarjetas (productos)
+
 function cargarProductos() {
     productoTarjetas.forEach(tarjeta => {
         //tarjeta de los productos
@@ -226,21 +229,21 @@ function cargarProductos() {
                 className: "info",
                 position: "right",
                 style: {
-                  background: "#22ab37",
-                  color:"white"
+                    background: "#22ab37",
+                    color: "white"
                 }
-              }).showToast();
+            }).showToast();
 
             const repeat = carrito.some((repeatProducto) => repeatProducto.id === tarjeta.id);
-            
+
             if (repeat) {
-                carrito.map((product) =>{
-                    if(product.id === tarjeta.id){
+                carrito.map((product) => {
+                    if (product.id === tarjeta.id) {
                         product.cantidad++;
                     }
                 });
 
-            }else{
+            } else {
                 carrito.push({
                     id: tarjeta.id,
                     titulo: tarjeta.titulo,
@@ -265,8 +268,8 @@ cargarProductos()
 
 //localStorage
 
-const saveStorage = () =>{
-    localStorage.setItem ("productoCarrito" , JSON.stringify (carrito));
+const saveStorage = () => {
+    localStorage.setItem("productoCarrito", JSON.stringify(carrito));
 }
 
 
@@ -294,7 +297,7 @@ const contenedorModal = () => {
     modalBotton.className = "modal-header-button";
 
 
-    modalBotton.addEventListener("click" , () =>{
+    modalBotton.addEventListener("click", () => {
         modalContainer.style.display = "none"
     })
 
@@ -318,8 +321,8 @@ const contenedorModal = () => {
         // sumar y restar productos en el modal del carrito
         let restar = modalCuerpo.querySelector(".resta");
 
-        restar.addEventListener("click" , () =>{
-            if(tarjeta.cantidad !== 1){
+        restar.addEventListener("click", () => {
+            if (tarjeta.cantidad !== 1) {
                 tarjeta.cantidad--;
                 contenedorModal();
                 saveStorage();
@@ -328,7 +331,7 @@ const contenedorModal = () => {
 
         let sumar = modalCuerpo.querySelector(".sumar");
 
-        sumar.addEventListener("click", () =>{
+        sumar.addEventListener("click", () => {
             tarjeta.cantidad++
             contenedorModal();
             saveStorage();
@@ -343,12 +346,12 @@ const contenedorModal = () => {
         modalCuerpo.append(eliminar);
 
 
-        eliminar.addEventListener("click" , eliminarProducto);
+        eliminar.addEventListener("click", eliminarProducto);
     })
 
     //suma de los productos
 
-    const total = carrito.reduce((acumulador, elemento) => acumulador + elemento.precio * elemento.cantidad , 0);
+    const total = carrito.reduce((acumulador, elemento) => acumulador + elemento.precio * elemento.cantidad, 0);
 
     const totalBuying = document.createElement("div");
     totalBuying.className = "total-content";
@@ -360,27 +363,27 @@ const contenedorModal = () => {
 caritoDeCompra.addEventListener("click", contenedorModal);
 
 //funcion eliminar productos
-const eliminarProducto = () =>{
+const eliminarProducto = () => {
     const encontrarId = carrito.find((element) => element.id);
 
-    carrito = carrito.filter((carritoId) =>{
+    carrito = carrito.filter((carritoId) => {
         return carritoId !== encontrarId;
     });
 
-    
+
     contenedorModal();
     saveStorage();
     sumaDeCarritoLogo();
-}; 
+};
 
 // Suma la cantidad de productos y te lo muestra en el carrito 
 
-const sumaDeCarritoLogo = () =>{
+const sumaDeCarritoLogo = () => {
     cantidadProducto.style.display = "block";
 
     const carritoLength = carrito.length;
-    
-    localStorage.setItem("carritoLength", JSON.stringify (carritoLength));
+
+    localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
 
     cantidadProducto.innerText = JSON.parse(localStorage.getItem("carritoLength"));
 }
