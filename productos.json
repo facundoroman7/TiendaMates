@@ -1,0 +1,109 @@
+[
+    {
+        "id": "mate-1",
+        "titulo": "Mate camionero",
+        "imagen": "./imagenes/img-1.webp",
+        "descripcion": "Mate Camionero De Vidrio Cuero Vacuno Virola De Aluminio",
+        "precio": 1000,
+        "cantidad": 1
+    },
+    {
+        "id": "mate-2",
+        "titulo": "Mate calabaza",
+        "imagen": "./imagenes/img-2.jpg",
+        "descripcion": "Mate Calabaza De Vidrio Cuero Vacuno Virola De Aluminio",
+        "precio": 3000,
+        "cantidad": 1
+    },
+    {
+        "id": "mate-3",
+        "titulo": "Mate argentino",
+        "imagen": "./imagenes/mate-argentino.jpg",
+        "descripcion": "Mate argentino De Vidrio Cuero Vacuno Virola De Aluminio",
+        "precio": 4000,
+        "cantidad": 1
+    },
+    {
+        "id": "mate-4",
+        "titulo": "Mate personalizado",
+        "imagen": "./imagenes/img-1.webp",
+        "descripcion": "Mate personalizado ipsum dolor sit amet consectetur.",
+        "precio": 4000,
+        "cantidad": 1
+    },
+    {
+        "id": "mate-5",
+        "titulo": "Mate personalizado ",
+        "imagen": "./imagenes/mate-5.jpg",
+        "descripcion": "Mate personalizado ipsum dolor sit amet consectetur.",
+        "precio": 4000,
+        "cantidad": 1
+    },
+    {
+        "id": "mate-6",
+        "titulo": "Mate AFA",
+        "imagen": "./imagenes/mate-6.jpg",
+        "descripcion": "Mate personalizado ipsum dolor sit amet consectetur.",
+        "precio": 4000,
+        "cantidad": 1
+    },
+
+    
+    {
+        "id": "termo-1",
+        "titulo": "Termo stanley",
+        "imagen": "./imagenes/termo-1.jpg",
+        "descripcion": "Termo stanley Lorem ipsum dolor sit amet consectetur.",
+        "precio": 8000,
+        "cantidad": 1
+    },
+    {
+        "id":"termo-2",
+        "titulo": "Termo contigo",
+        "imagen": "./imagenes/termo-2.jpg",
+        "descripcion": "Termo contigo Lorem ipsum dolor sit amet consectetur.",
+        "precio": 10000,
+        "cantidad": 1
+    },
+    {
+        "id": "termo-3",
+        "titulo": "Termo contigo",
+        "imagen": "./imagenes/termo-3.jpg",
+        "descripcion": "Termo contigo Lorem ipsum dolor sit amet consectetur.",
+        "precio": 10000,
+        "cantidad": 1
+    },
+    {
+        "id": "termo-4",
+        "titulo": "Termo stanley",
+        "imagen": "./imagenes/termo-4.jpg",
+        "descripcion": "Termo contigo Lorem ipsum dolor sit amet consectetur.",
+        "precio": 10000,
+        "cantidad": 1
+    },
+    
+    {
+        "id": "matera-1",
+        "titulo": "Canasta Uruguaya ",
+        "imagen": "./imagenes/matera-1.jpg",
+        "descripcion": "Matera Portatermo Cuero Premium Legítimo. ipsum dolor.",
+        "precio": 16700
+    },
+    {
+        "id": "matera-2",
+        "titulo": "Mochila matera porta Notebook ",
+        "imagen": "./imagenes/matera-2.jpg",
+        "descripcion": "Mochila matera porta Notebook ",
+        "precio": 14000,
+        "cantidad": 1
+    },
+    {
+        "id": "matera-3",
+        "titulo": "Portatermo Matero morral ",
+        "imagen": "./imagenes/matera-3.jpg",
+        "descripcion": "TiendaMate cuero Bufalo Premium",
+        "precio": 28000,
+        "cantidad": 1
+    }
+
+]
