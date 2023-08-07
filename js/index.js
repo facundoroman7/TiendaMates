@@ -1,27 +1,27 @@
-// function nombre() {
-//     let nombre = prompt(("Escriba un nombre de usuario:"));
-//     if (nombre) {
-//         alert("Bienvenido " + nombre)
-//     };
-// }
+function nombre() {
+    let nombre = prompt(("Escriba un nombre de usuario:"));
+    if (nombre) {
+        alert("Bienvenido " + nombre)
+    };
+}
 
-// nombre()
+nombre()
 
-// let edad = parseInt(prompt("Pon tu edad:"))
-// do {
+let edad = parseInt(prompt("Pon tu edad:"))
+do {
 
-//     if (edad >= 18) {
-//         alert("Sos mayor de edad. Bienvenido a TiendaMates!")
-//     } else {
-//         alert("Sos menor de edad")
-//         edad = parseInt(prompt("Lo siento, tienes que ser mayor de edad. Vuelva a intentarlo"))
-//     }
-// }
-// while (edad < 18)
+    if (edad >= 18) {
+        alert("Sos mayor de edad. Bienvenido a TiendaMates!")
+    } else {
+        alert("Sos menor de edad")
+        edad = parseInt(prompt("Lo siento, tienes que ser mayor de edad. Vuelva a intentarlo"))
+    }
+}
+while (edad < 18)
 
 
 
-// flitro de busqueda 
+
 const contenedorTarjetas = document.querySelector("#contenedorDeTarjetas");
 
 const buscadorInput = document.querySelector("#buscadorInput");
@@ -36,6 +36,7 @@ const modalContainer = document.querySelector("#modalContainer");
 
 const cantidadProducto = document.querySelector("#cantidadProducto");
 
+// flitro de busqueda 
 
 const productsMates = [
     { nombre: "Mate camionero" },
@@ -49,6 +50,7 @@ const productsMates = [
     { nombre: "Portatermo matero" },
 
 ];
+
 
 
 const handleSearch = () => {
@@ -79,14 +81,11 @@ buscadorInput.addEventListener("input", handleSearch);
 
 //tarjetas de productos y modal hecho en javascript
 
-// la lista de productos
-// const productoTarjetas = [];
-
 
 //carrito
 let carrito = JSON.parse(localStorage.getItem("productoCarrito")) || [];
 
-// Funcion para aprecer las tarjetas (productos) y tambien con la fucion de fetch y usando el async, await
+// Funcion para aprecer las tarjetas (productos) y tambien con la funcion de fetch y usando el async, await
 
 const getProductos = async () => {
     const response = await fetch("productos.json");
